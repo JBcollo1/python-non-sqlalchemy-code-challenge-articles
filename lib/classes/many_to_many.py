@@ -2,25 +2,28 @@ class Article:
     all = []  
 
     def __init__(self, author, magazine, title):
-        self._author = author
-        self._magazine = magazine
+        if type(title) != str and not (5 <= len(title) <= 50):
+            raise ValueError("Title must be a string and between 5-50 character")
         self._title = title
 
+        self._author = author
+        self._magazine = magazine
         self._author.articles().append(self)
         self._magazine.articles().append(self)
         Article.all.append(self)
 
     @property
     def title(self):
+       
         return self._title
-
-    @title.setter
-    def title(self, title):
-        raise AttributeError("Title cannot be changed after initialization")
 
     @property
     def author(self):
         return self._author
+    
+
+    
+        
 
     @author.setter
     def author(self, author):
@@ -115,4 +118,8 @@ class Magazine:
             author_counts[author] += 1
         
         contributing_authors = [author for author, count in author_counts.items() if count > 2]
-        return contributing_authors if contributing_authors else None  # Return None if list is empty
+        return contributing_authors if contributing_authors else None 
+
+
+# alex = Article("Leo","new work","end")
+# print(alex.)

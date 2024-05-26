@@ -116,3 +116,25 @@ class Magazine:
 
         contributing_authors = [author for author, count in author_counts.items() if count > 2]
         return contributing_authors if contributing_authors else None
+
+
+
+author1 = Author("John Lee")
+
+
+magazine1 = Magazine("Tech Monthly", "Technology")
+magazine2 = Magazine("M News", "News")
+
+
+article1 = Article(author1, magazine2, "Plus News")
+print (article1.magazine.name)
+print (article1.author.name)
+Magazine_by_1 = author1.magazines()
+magazine_names = [magazine.name for magazine in Magazine_by_1]
+
+print(magazine_names)
+
+
+# This verifies the relationship
+print(f"Author1: {author1.name}, Articles: {[article.title for article in author1.articles()]}")
+print(f"Magazine2: {magazine2.name}, Articles: {[article.title for article in magazine2.articles()]}")

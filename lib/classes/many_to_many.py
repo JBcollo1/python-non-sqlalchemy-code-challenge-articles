@@ -120,7 +120,7 @@ class Magazine:
 
 
 author1 = Author("John Lee")
-
+print(author1.__dict__)
 
 magazine1 = Magazine("Tech Monthly", "Technology")
 magazine2 = Magazine("M News", "News")
